@@ -1,0 +1,13 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Reports</h2>
+<div class="grid">
+  <div class="card"><h3>Total Rooms</h3><p class="badge">{{ metrics.total_rooms }}</p></div>
+  <div class="card"><h3>Booked Rooms</h3><p class="badge">{{ metrics.booked_rooms }}</p></div>
+  <div class="card"><h3>Available Rooms</h3><p class="badge">{{ metrics.available_rooms }}</p></div>
+  <div class="card"><h3>Total Students</h3><p class="badge">{{ metrics.total_students }}</p></div>
+  <div class="card"><h3>Fees Collected</h3><p class="badge">₹ {{ "%.2f"|format(metrics.fees_collected) }}</p></div>
+  <div class="card"><h3>Open Complaints</h3><p class="badge">{{ metrics.open_complaints }}</p></div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Fees</h2>
+
+{% if role == "student" %}
+  <form method="post" class="grid" style="max-width:420px;">
+    <input type="number" step="0.01" name="amount" placeholder="Amount (e.g., 5000)" required>
+    <button class="button" type="submit">Mark as Paid (Demo)</button>
+  </form>
+  <h3>Your Payments</h3>
+  <table class="table">
+    <tr><th>Date</th><th>Amount</th><th>Status</th></tr>
+    {% for f in fees %}
+      <tr><td>{{ f['date'] }}</td><td>{{ f['amount'] }}</td><td><span class="badge">{{ f['status'] }}</span></td></tr>
+    {% endfor %}
+  </table>
+{% endif %}
+
+{% if role == "warden" %}
+  <h3>All Fees</h3>
+  <table class="table">
+    <tr><th>Date</th><th>Student</th><th>Amount</th><th>Status</th></tr>
+    {% for f in fees %}
+      <tr><td>{{ f['date'] }}</td><td>{{ f['student_name'] }}</td><td>{{ f['amount'] }}</td><td>{{ f['status'] }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h3>Pending This Month</h3>
+  <ul>
+    {% for s in pending %}
+      <li>{{ s['name'] }}</li>
+    {% else %}
+      <li>All students have paid this month.</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

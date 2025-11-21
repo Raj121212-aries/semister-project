@@ -1,0 +1,18 @@
+
+body { font-family: system-ui, Arial, sans-serif; margin:0; background:#f7f7fb; }
+.navbar { background:#1f2937; color:#fff; padding:12px 18px; display:flex; justify-content:space-between; align-items:center; }
+.container { max-width: 1024px; margin: 24px auto; background:#fff; padding:20px; border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+h1,h2,h3 { color:#111827; }
+.button { padding:10px 14px; border:none; background:#2563eb; color:#fff; border-radius:10px; cursor:pointer; }
+.button.secondary { background:#6b7280; }
+.table { width:100%; border-collapse: collapse; margin-top:12px; }
+.table th, .table td { border:1px solid #e5e7eb; padding:8px; text-align:left; }
+.badge { padding:4px 8px; border-radius:999px; background:#eef2ff; display:inline-block; }
+.flex { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card { padding:16px; background:#fff; border:1px solid #e5e7eb; border-radius:12px; }
+input, select, textarea { padding:10px; border:1px solid #e5e7eb; border-radius:10px; width:100%; }
+form { display:grid; gap:12px; }
+a { color:#2563eb; text-decoration:none; }
+.alert { background:#eef2ff; padding:10px 12px; border-left:4px solid #2563eb; border-radius:8px; margin-bottom:12px; }
+footer { text-align:center; color:#6b7280; padding:16px; }

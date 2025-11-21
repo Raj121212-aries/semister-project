@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>👨‍🎓 Student Dashboard</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Room Booking</h3>
+    <p>Empty rooms ko dekho aur apne liye book karo.</p>
+    <a class="button" href="{{ url_for('student_rooms') }}">Manage Room</a>
+  </div>
+  <div class="card">
+    <h3>Fees</h3>
+    <p>Apni fee payments dekhon aur pay (demo) mark karo.</p>
+    <a class="button" href="{{ url_for('student_fees') }}">Fees</a>
+  </div>
+  <div class="card">
+    <h3>Leave Request</h3>
+    <p>Warden se chhutti ki permission maango.</p>
+    <a class="button" href="{{ url_for('student_leaves') }}">Leaves</a>
+  </div>
+  <div class="card">
+    <h3>Complaints</h3>
+    <p>Issue ho to complaint register karo.</p>
+    <a class="button" href="{{ url_for('student_complaints') }}">Complaints</a>
+  </div>
+</div>
+{% endblock %}

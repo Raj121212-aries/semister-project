@@ -1,0 +1,33 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Leave Requests</h2>
+
+{% if role == "student" %}
+  <form method="post" class="grid">
+    <textarea name="reason" rows="3" placeholder="Reason for leave..." required></textarea>
+    <button class="button" type="submit">Submit</button>
+  </form>
+{% endif %}
+
+<table class="table">
+  <tr><th>ID</th><th>Student</th><th>Reason</th><th>Status</th>{% if role == "warden" %}<th>Action</th>{% endif %}</tr>
+  {% for l in leaves %}
+    <tr>
+      <td>{{ l['id'] }}</td>
+      <td>{{ l['student_name'] }}</td>
+      <td>{{ l['reason'] }}</td>
+      <td><span class="badge">{{ l['status'] }}</span></td>
+      {% if role == "warden" %}
+      <td>
+        <form method="post" class="flex">
+          <input type="hidden" name="leave_id" value="{{ l['id'] }}">
+          <button class="button" name="action" value="approved">Approve</button>
+          <button class="button secondary" name="action" value="rejected">Reject</button>
+        </form>
+      </td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

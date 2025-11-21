@@ -1,0 +1,32 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>🧑‍🏫 Warden Dashboard</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Allocate Rooms</h3>
+    <p>Students ko rooms assign karo.</p>
+    <a class="button" href="{{ url_for('warden_allocate') }}">Allocate</a>
+  </div>
+  <div class="card">
+    <h3>Fees</h3>
+    <p>Paid/Pending fee status dekho.</p>
+    <a class="button" href="{{ url_for('warden_fees') }}">Fees</a>
+  </div>
+  <div class="card">
+    <h3>Leaves</h3>
+    <p>Students ke leave requests approve/reject karo.</p>
+    <a class="button" href="{{ url_for('warden_leaves') }}">Leaves</a>
+  </div>
+  <div class="card">
+    <h3>Complaints</h3>
+    <p>Complaints resolve karo aur reply do.</p>
+    <a class="button" href="{{ url_for('warden_complaints') }}">Complaints</a>
+  </div>
+  <div class="card">
+    <h3>Inventory</h3>
+    <p>Hostel ki zaroori cheezen manage karo.</p>
+    <a class="button" href="{{ url_for('warden_inventory') }}">Inventory</a>
+  </div>
+</div>
+{% endblock %}

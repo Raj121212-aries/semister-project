@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Rooms</h2>
+
+{% if role == "student" %}
+  {% if my_room %}
+    <p><strong>Your Room:</strong> {{ my_room["room_no"] }} <span class="badge">Booked</span></p>
+  {% else %}
+    <h3>Empty Rooms</h3>
+    <form method="post" class="grid">
+      <select name="room_id">
+        {% for r in empty_rooms %}
+          <option value="{{ r['id'] }}">{{ r['room_no'] }}</option>
+        {% endfor %}
+      </select>
+      <button class="button" type="submit">Book Selected</button>
+    </form>
+  {% endif %}
+{% endif %}
+
+{% if role == "warden" %}
+  <h3>Allocate Room</h3>
+  <form method="post" class="grid">
+    <select name="student_id">
+      {% for s in students %}
+        <option value="{{ s['id'] }}">{{ s['name'] }}</option>
+      {% endfor %}
+    </select>
+    <select name="room_id">
+      {% for r in empty_rooms %}
+        <option value="{{ r['id'] }}">{{ r['room_no'] }}</option>
+      {% endfor %}
+    </select>
+    <button class="button" type="submit">Allocate</button>
+  </form>
+
+  <h3>Occupied Rooms</h3>
+  <table class="table">
+    <tr><th>Room No</th><th>Student</th></tr>
+    {% for r in occupied %}
+      <tr><td>{{ r['room_no'] }}</td><td>{{ r['student_name'] or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>🛡️ Admin Dashboard</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Manage Users</h3>
+    <p>Student/Warden accounts add/remove/update.</p>
+    <a class="button" href="{{ url_for('admin_users') }}">Users</a>
+  </div>
+  <div class="card">
+    <h3>Reports</h3>
+    <p>Rooms, fees, complaints ka overview.</p>
+    <a class="button" href="{{ url_for('admin_reports') }}">Reports</a>
+  </div>
+</div>
+{% endblock %}

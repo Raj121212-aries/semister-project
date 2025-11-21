@@ -1,0 +1,16 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Inventory</h2>
+<form method="post" class="grid" style="max-width:480px;">
+  <input name="name" placeholder="Item name" required>
+  <input type="number" name="quantity" placeholder="Quantity" required>
+  <button class="button" type="submit">Add Item</button>
+</form>
+<table class="table">
+  <tr><th>ID</th><th>Name</th><th>Quantity</th></tr>
+  {% for i in items %}
+    <tr><td>{{ i['id'] }}</td><td>{{ i['name'] }}</td><td>{{ i['quantity'] }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

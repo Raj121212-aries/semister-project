@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "Hostel Management" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <div><strong>🏠 HostelMS</strong></div>
+    <div class="flex">
+      {% if session.get('name') %}<span>Hi, {{session.get('name')}} ({{session.get('role')}})</span>{% endif %}
+      {% if session.get('user_id') %}<a class="button secondary" href="{{ url_for('logout') }}">Logout</a>{% endif %}
+    </div>
+  </div>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}<div class="alert">{{m}}</div>{% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+  <footer>© {{ now.year }} Hostel Management System • Demo Build</footer>
+</body>
+</html>
